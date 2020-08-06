@@ -1,0 +1,19 @@
+{
+  "name": "@jaystack/sls-core",
+  "version": "0.0.0",
+  "description": "",
+  "main": "dist/index.js",
+  "module": "dist/esm/index.js",
+  "scripts": {
+    "build": "npm run clean && npm run compile",
+    "clean": "rimraf -rf ./dist",
+    "compile:cjs": "tsc -p tsconfig.build.json",
+    "compile:esm": "tsc -p tsconfig.build.esm.json",
+    "compile": "npm run compile:cjs && npm run compile:esm",
+    "prepublishOnly": "npm run build",
+    "test": "npm run build"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "UNLICENSED"
+}
