@@ -17,6 +17,9 @@
   "author": "",
   "license": "UNLICENSED",
   "devDependencies": {
-    "@types/aws-lambda": "^8.10.59"
+    "@types/aws-lambda": "^8.10.59",
+    "@types/jest": "^26.0.9",
+    "jest": "^26.2.2",
+    "ts-jest": "^26.1.4"
   }
 }
