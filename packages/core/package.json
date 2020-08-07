@@ -15,5 +15,8 @@
   },
   "keywords": [],
   "author": "",
-  "license": "UNLICENSED"
+  "license": "UNLICENSED",
+  "devDependencies": {
+    "@types/aws-lambda": "^8.10.59"
+  }
 }
