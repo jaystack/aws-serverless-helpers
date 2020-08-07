@@ -11,7 +11,7 @@
     "compile:esm": "tsc -p tsconfig.build.esm.json",
     "compile": "npm run compile:cjs && npm run compile:esm",
     "prepublishOnly": "npm run build",
-    "test": "npm run build"
+    "test": "jest"
   },
   "keywords": [],
   "author": "",

@@ -21,3 +21,5 @@ export const composeDecoratorMiddlewares = (...middlewares: DecoratorMiddleware[
 
 export const composeDecoratedHandler = (handler: DecoratedHandler, ...middlewares: DecoratorMiddleware[]): Handler =>
   composeDecoratorMiddlewares(...middlewares)(handler);
+
+export const noopMiddleware: DecoratorMiddleware = (lambda) => async (...args) => lambda(...args);
