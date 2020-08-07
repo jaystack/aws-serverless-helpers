@@ -1,1 +1,1 @@
-export const asa = 333;
+export * from "./lambda-middleware";
