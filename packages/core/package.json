@@ -1,9 +1,11 @@
 {
   "name": "@jaystack/sls-core",
   "version": "0.0.0",
-  "description": "",
+  "description": "AWS Serverless core utilities",
   "main": "dist/index.js",
   "module": "dist/esm/index.js",
+  "typings": "dist/index.d.ts",
+  "files": ["dist"],
   "scripts": {
     "build": "npm run clean && npm run compile",
     "clean": "rimraf -rf ./dist",
