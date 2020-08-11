@@ -8,11 +8,13 @@ module.exports = {
   },
   extends: ["eslint:recommended", "plugin:@typescript-eslint/recommended", "prettier", "prettier/@typescript-eslint"],
   plugins: ["@typescript-eslint", "prettier"],
-  rules: {
-    "prettier/prettier": 2,
-  },
   env: {
     browser: true,
     node: true,
+  },
+  rules: {
+    "prettier/prettier": 2,
+    "@typescript-eslint/explicit-module-boundary-types": 0,
+    "@typescript-eslint/no-explicit-any": 0,
   },
 };

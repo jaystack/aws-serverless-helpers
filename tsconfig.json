@@ -3,9 +3,11 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "@jaystack/*": [
-        "packages/*/src"
+      "@jaystack/sls-core": [
+        "packages/core/src"
       ]
-    }
+    },
+    "esModuleInterop": true,
+    "skipLibCheck": true
   }
 }
