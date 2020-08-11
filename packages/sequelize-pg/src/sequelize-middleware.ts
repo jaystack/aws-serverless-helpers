@@ -1,6 +1,7 @@
 import Debug from "debug";
-import { DecoratorMiddleware, AppError, ErrorCodes } from "@jaystack/sls-core";
+import { DecoratorMiddleware, AppError, ErrorCodes, isAppError } from "@jaystack/sls-core";
 import { Options, Sequelize } from "sequelize";
+import { mapSequelizeError } from "./sequelize-errors";
 
 export interface WithSequelizeOptions extends Options {
   shouldAuthenticate?: boolean;
@@ -55,29 +56,24 @@ export const withSequelize = (userOptions: WithSequelizeOptions, SeqCtr = Sequel
           debug(`'${options.database}' db on host: '${options.host}'`);
           sequelize = new SeqCtr(options);
         } else {
-          debug(`reusing Sequelize global instance for the ${invocationCount} time`);
+          debug(`reusing Sequelize global instance for the ${invocationCount}th time`);
         }
 
-        if (options.doAuthenticate) {
-          debug("authenticate");
+        if (options.shouldAuthenticate) {
+          debug("authenticating");
           await sequelize.authenticate();
         }
 
-        const result = await λ(event, context, { ...deps, sequelize }, callback);
-        debug("result");
+        const result = await handler(event, context, { ...dependencies, sequelize }, callback);
+        debug("got handler result");
 
         return result;
       } catch (error) {
-        if (isAppException(error)) {
-          throw error;
-        }
-        console.error(error);
-        const knownErrorCode = getSequelizeErrorCode(error);
-
-        throw knownErrorCode ? new AppException(knownErrorCode) : error;
+        // wrap sequelize error
+        throw isAppError(error) ? error : mapSequelizeError(error);
       } finally {
-        if (sequelize && options.doCloseAfter) {
-          debug("Closing DB");
+        if (sequelize && options.shouldCloseConnection) {
+          debug("closing connection");
           try {
             await sequelize.close();
             debug("Cleaned up DB!");
