@@ -7,14 +7,17 @@
     ],
     "sourceMap": true,
     "declaration": true,
+    "composite": true,
     "declarationMap": true,
     "esModuleInterop": true,
     "skipLibCheck": true,
     "allowJs": true,
-    "checkJs": false
+    "checkJs": false,
   },
   "exclude": [
+    "**/*.test.ts",
     "node_modules",
-    "dist"
-  ]
+    "**/dist/*",
+    "**/*.d.ts"
+  ],
 }

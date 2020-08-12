@@ -10,12 +10,11 @@
   ],
   "scripts": {
     "build": "npm run clean && npm run compile",
-    "clean": "rimraf -rf ./dist",
+    "clean": "rimraf -rf ./dist *.tsbuildinfo",
     "compile:cjs": "tsc -p tsconfig.build.json",
-    "compile:esm": "tsc -p tsconfig.build.esm.json",
-    "compile": "npm run compile:cjs && npm run compile:esm",
+    "compile": "npm run compile:cjs",
     "prepublishOnly": "npm run build",
-    "test": "jest"
+    "test": "jest --passWithNoTests"
   },
   "keywords": [],
   "author": "",
@@ -24,7 +23,9 @@
     "@types/jest": "^26.0.9",
     "@types/sequelize": "^4.28.9",
     "jest": "^26.2.2",
-    "ts-jest": "^26.1.4"
+    "rimraf": "^3.0.2",
+    "ts-jest": "^26.1.4",
+    "typescript": "^3.9.7"
   },
   "dependencies": {
     "@jaystack/sls-core": "*",

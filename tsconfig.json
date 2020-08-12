@@ -3,11 +3,15 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "@jaystack/sls-core": [
-        "packages/core/src"
-      ]
+      "@jaystack/*": [
+        "packages/*/src"
+      ],
+      // "@jaystack/sls-core": [
+      //   "packages/core/src"
+      // ],
+      // "@jaystack/sls-sequelize-pg": [
+      //   "packages/sequlize-pg/src"
+      // ]
     },
-    "esModuleInterop": true,
-    "skipLibCheck": true
   }
 }
