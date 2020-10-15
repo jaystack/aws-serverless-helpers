@@ -14,6 +14,8 @@ export interface WithSequelizeOptions extends Omit<Options, "port"> {
 const defaultConfig: WithSequelizeOptions = {
   shouldAuthenticate: false,
   shouldCloseConnection: false,
+  shouldSync: false,
+  dialect: "postgres",
   pool: {
     // Maximum number of connection in pool
     max: 2,
@@ -31,18 +33,20 @@ const defaultConfig: WithSequelizeOptions = {
   },
 };
 
+const requiredParams = ["host", "port", "username", "password", "database", "dialect"];
 function validateSequelizeOptions(
   userConfig?: WithSequelizeOptions,
   base: WithSequelizeOptions = defaultConfig
 ): WithSequelizeOptions {
   const options = { ...base, ...userConfig };
-  const { host, port, username, password, database, dialect = "postgres" } = options;
 
-  if (!host || !port || !username || !password || !dialect || !database) {
-    throw new AppError(ErrorCodes.CONFIGURATION, "Missing sequelize helper parameter(s)!");
+  for (const param of requiredParams) {
+    if (typeof options[param] === "undefined") {
+      throw new AppError(ErrorCodes.CONFIGURATION, `Missing required sequelize param: ${param}`);
+    }
   }
 
-  return { port: Number(port), host, username, password, database, dialect };
+  return { ...options, port: Number(options.port) };
 }
 
 let sequelize: Sequelize;
