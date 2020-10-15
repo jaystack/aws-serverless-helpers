@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.0.1-alpha.7](https://github.com/jaystack/aws-serverless-helpers/compare/v0.0.1-alpha.6...v0.0.1-alpha.7) (2020-10-15)
+
+
+### Features
+
+* **sequelize-pg:** add initModelsCallback config option ([7b7caf7](https://github.com/jaystack/aws-serverless-helpers/commit/7b7caf7caf5a46e07b082135cccccd70d353d665))
+
+
+
+
+
 ## [0.0.1-alpha.6](https://github.com/jaystack/aws-serverless-helpers/compare/v0.0.1-alpha.5...v0.0.1-alpha.6) (2020-10-15)
 
 
