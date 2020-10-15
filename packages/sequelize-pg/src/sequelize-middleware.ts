@@ -3,10 +3,12 @@ import { DecoratorMiddleware, AppError, ErrorCodes, isAppError } from "@jaystack
 import { Options, Sequelize } from "sequelize";
 import { mapSequelizeError } from "./sequelize-errors";
 
-export interface WithSequelizeOptions extends Options {
+export interface WithSequelizeOptions extends Omit<Options, "port"> {
   shouldAuthenticate?: boolean;
   shouldSync?: boolean;
   shouldCloseConnection?: boolean;
+
+  port?: string | number;
 }
 
 const defaultConfig: WithSequelizeOptions = {
@@ -40,7 +42,7 @@ function validateSequelizeOptions(
     throw new AppError(ErrorCodes.CONFIGURATION, "Missing sequelize helper parameter(s)!");
   }
 
-  return options;
+  return { ...options, port: Number(port) };
 }
 
 let sequelize: Sequelize;
@@ -58,7 +60,7 @@ export const withSequelize = (
       try {
         if (!sequelize) {
           debug(`'${options.database}' db on host: '${options.host}'`);
-          sequelize = new SeqCtr(options);
+          sequelize = new SeqCtr(options as Options);
         } else {
           debug(`reusing Sequelize global instance for the ${invocationCount}th time`);
         }
