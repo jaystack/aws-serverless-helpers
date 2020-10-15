@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.0.1-alpha.9](https://github.com/jaystack/aws-serverless-helpers/compare/v0.0.1-alpha.8...v0.0.1-alpha.9) (2020-10-15)
+
+
+### Features
+
+* **sequelize-pg:** add isSequelizeUniqueConstraintError helper ([be11741](https://github.com/jaystack/aws-serverless-helpers/commit/be11741f5e04bdf675e37aeb57cad8370b6a63e2))
+
+
+
+
+
 ## [0.0.1-alpha.8](https://github.com/jaystack/aws-serverless-helpers/compare/v0.0.1-alpha.7...v0.0.1-alpha.8) (2020-10-15)
 
 
