@@ -23,6 +23,8 @@ export const isSequelizeDatabaseError = (error) => error instanceof DatabaseErro
 export const isSequelizeConnectionError = (error) => error instanceof ConnectionError;
 export const isSequelizeValidationError = (error) => error instanceof ValidationError;
 
+export const isSequelizeUniqueConstraintError = (error) => error.name === "UniqueConstraintError";
+
 const sequelizeErrorMap = {
   /**
    * Thrown when a database query times out because of a deadlock
