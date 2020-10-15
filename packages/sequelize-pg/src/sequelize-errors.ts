@@ -23,7 +23,8 @@ export const isSequelizeDatabaseError = (error) => error instanceof DatabaseErro
 export const isSequelizeConnectionError = (error) => error instanceof ConnectionError;
 export const isSequelizeValidationError = (error) => error instanceof ValidationError;
 
-export const isSequelizeUniqueConstraintError = (error) => error.name === "UniqueConstraintError";
+export const isSequelizeUniqueConstraintError = (error) =>
+  /UniqueConstraintError$/.test(error.name);
 
 const sequelizeErrorMap = {
   /**
@@ -87,7 +88,9 @@ export function mapSequelizeError(sequelizeError: Error): Error | AppError {
     return new AppError(ErrorCodes.DB_CONSTRAINT, sequelizeError);
   }
 
-  const code = sequelizeErrorMap[sequelizeError.name];
+  const code =
+    sequelizeErrorMap[sequelizeError.name] ??
+    sequelizeErrorMap[sequelizeError.name.replace(/^Sequelize/, "")];
 
   return code ? new AppError(code, sequelizeError) : sequelizeError;
 }
