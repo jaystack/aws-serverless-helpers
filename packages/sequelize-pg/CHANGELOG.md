@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.0.1-alpha.5](https://github.com/jaystack/aws-serverless-helpers/compare/v0.0.1-alpha.4...v0.0.1-alpha.5) (2020-10-15)
+
+
+### Bug Fixes
+
+* **sequelize-pg:** param validation returns the correct parameters ([d370546](https://github.com/jaystack/aws-serverless-helpers/commit/d370546670db790697adc7dea2a2c09ae286a4bf))
+
+
+
+
+
 ## [0.0.1-alpha.4](https://github.com/jaystack/aws-serverless-helpers/compare/v0.0.1-alpha.3...v0.0.1-alpha.4) (2020-10-15)
 
 **Note:** Version bump only for package @jaystack/sls-sequelize-pg

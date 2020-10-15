@@ -1,7 +1,7 @@
 {
   "name": "@jaystack/sls-sequelize-pg",
   "license": "MIT",
-  "version": "0.0.1-alpha.4",
+  "version": "0.0.1-alpha.5",
   "description": "AWS Serverless Sequelize PostgresDB utilities",
   "publishConfig": {
     "registry": "https://npm.pkg.github.com/"
