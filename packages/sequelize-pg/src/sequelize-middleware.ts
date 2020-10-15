@@ -5,6 +5,7 @@ import { mapSequelizeError } from "./sequelize-errors";
 
 export interface WithSequelizeOptions extends Options {
   shouldAuthenticate?: boolean;
+  shouldSync?: boolean;
   shouldCloseConnection?: boolean;
 }
 
@@ -44,7 +45,10 @@ function validateSequelizeOptions(
 
 let sequelize: Sequelize;
 const invocationCount = 0;
-export const withSequelize = (userOptions: WithSequelizeOptions, SeqCtr = Sequelize): DecoratorMiddleware => {
+export const withSequelize = (
+  userOptions: WithSequelizeOptions,
+  SeqCtr = Sequelize
+): DecoratorMiddleware => {
   const options = validateSequelizeOptions(userOptions);
 
   return (handler) => {
@@ -59,9 +63,14 @@ export const withSequelize = (userOptions: WithSequelizeOptions, SeqCtr = Sequel
           debug(`reusing Sequelize global instance for the ${invocationCount}th time`);
         }
 
-        if (options.shouldAuthenticate) {
+        if (options.shouldAuthenticate || options.shouldSync) {
           debug("authenticating");
           await sequelize.authenticate();
+        }
+
+        if (options.shouldSync) {
+          debug("synchronizing tables");
+          await sequelize.sync();
         }
 
         const result = await handler(event, context, { ...dependencies, sequelize }, callback);

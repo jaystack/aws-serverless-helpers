@@ -2,7 +2,12 @@ import { DecoratorMiddleware } from "./lambda-middleware";
 import { AppError, ErrorCodes } from "./app-error";
 import { ok } from "./api-gateway-responses";
 
-export const withParsedBody = (): DecoratorMiddleware => (lambda) => async (event, context, dependencies, callback) => {
+export const withParsedBody = (): DecoratorMiddleware => (lambda) => async (
+  event,
+  context,
+  dependencies,
+  callback
+) => {
   if (!event || typeof event.body !== "string") {
     throw new AppError(ErrorCodes.VALIDATION, "missing JSON body");
   }
@@ -15,12 +20,21 @@ export const withParsedBody = (): DecoratorMiddleware => (lambda) => async (even
   return lambda(event, context, { ...dependencies, parsedBody }, callback);
 };
 
-export type WithOkResponseOptions = { cors?: boolean; headers?: { [k: string]: string }; wrapResult?: boolean };
+export type WithOkResponseOptions = {
+  cors?: boolean;
+  headers?: { [k: string]: string };
+  wrapResult?: boolean;
+};
 export const withOkResponse = ({
   cors,
   headers,
   wrapResult = true,
-}: WithOkResponseOptions = {}): DecoratorMiddleware => (lambda) => async (event, context, deps, callback) => {
+}: WithOkResponseOptions = {}): DecoratorMiddleware => (lambda) => async (
+  event,
+  context,
+  deps,
+  callback
+) => {
   const result = await lambda(event, context, deps, callback);
   const body = wrapResult ? { ok: true, result } : result;
   return ok({ body, cors, headers });

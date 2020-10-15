@@ -5,7 +5,11 @@ export class AppError extends Error {
   constructor(code?: string | ErrorCodes, originalError?: Error);
   constructor(code?: string | ErrorCodes, message?: string, originalError?: Error);
 
-  constructor(code: string | ErrorCodes = ErrorCodes.UNKNOWN, message?: string | Error, originalError?: Error) {
+  constructor(
+    code: string | ErrorCodes = ErrorCodes.UNKNOWN,
+    message?: string | Error,
+    originalError?: Error
+  ) {
     super();
 
     if (message instanceof Error) {

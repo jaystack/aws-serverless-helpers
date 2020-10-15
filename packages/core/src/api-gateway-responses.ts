@@ -61,18 +61,32 @@ export function internalServerError({
   headers = {},
   cors,
 }: ApiGwErrorResponseFactoryOptions = {}): APIGatewayProxyResult {
-  return apiGatewayResultFactory(500, { message: `Internal server error: ${message}` }, headers, cors);
+  return apiGatewayResultFactory(
+    500,
+    { message: `Internal server error: ${message}` },
+    headers,
+    cors
+  );
 }
 
-export function unauthorized({ headers = {}, cors }: ApiGwErrorResponseFactoryOptions = {}): APIGatewayProxyResult {
+export function unauthorized({
+  headers = {},
+  cors,
+}: ApiGwErrorResponseFactoryOptions = {}): APIGatewayProxyResult {
   return apiGatewayResultFactory(401, { message: "Unauthorized" }, headers, cors);
 }
 
-export function notFound({ headers = {}, cors }: ApiGwErrorResponseFactoryOptions = {}): APIGatewayProxyResult {
+export function notFound({
+  headers = {},
+  cors,
+}: ApiGwErrorResponseFactoryOptions = {}): APIGatewayProxyResult {
   return apiGatewayResultFactory(404, { message: "Not Found" }, headers, cors);
 }
 
-export function forbidden({ headers = {}, cors }: ApiGwErrorResponseFactoryOptions = {}): APIGatewayProxyResult {
+export function forbidden({
+  headers = {},
+  cors,
+}: ApiGwErrorResponseFactoryOptions = {}): APIGatewayProxyResult {
   return apiGatewayResultFactory(403, { message: "Forbidden" }, headers, cors);
 }
 
@@ -81,6 +95,9 @@ export function customError({
   headers = {},
   cors,
   statusCode = 400,
-}: ApiGwErrorResponseFactoryOptions & { body?: any; statusCode?: number } = {}): APIGatewayProxyResult {
+}: ApiGwErrorResponseFactoryOptions & {
+  body?: any;
+  statusCode?: number;
+} = {}): APIGatewayProxyResult {
   return apiGatewayResultFactory(statusCode, body, headers, cors);
 }

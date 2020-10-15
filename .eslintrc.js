@@ -6,7 +6,12 @@ module.exports = {
     ecmaVersion: 2019,
     sourceType: "module",
   },
-  extends: ["eslint:recommended", "plugin:@typescript-eslint/recommended", "prettier", "prettier/@typescript-eslint"],
+  extends: [
+    "eslint:recommended",
+    "plugin:@typescript-eslint/recommended",
+    "prettier",
+    "prettier/@typescript-eslint",
+  ],
   plugins: ["@typescript-eslint", "prettier"],
   env: {
     browser: true,

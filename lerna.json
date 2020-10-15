@@ -2,5 +2,17 @@
   "packages": [
     "packages/*"
   ],
+  "publish": {
+    "message": "chore(release): publish",
+    "registry": "https://npm.pkg.github.com"
+  },
+  "changelogPreset": "angular",
+  "command": {
+    "version": {
+      "allowBranch": "main",
+      "conventionalCommits": true,
+      "message": "chore(release): %s"
+    }
+  },
   "version": "0.0.0"
 }

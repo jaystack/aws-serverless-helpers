@@ -1,0 +1,38 @@
+{
+  "compilerOptions": {
+    "module": "CommonJS",
+    "target": "ES2019",
+    "lib": [
+      "DOM",
+      "ES2019",
+      // "ESNext"
+    ],
+    "moduleResolution": "node",
+    "sourceMap": true,
+    "declaration": true,
+    "declarationMap": true,
+    "composite": true,
+    "allowJs": true,
+    "checkJs": false,
+    "skipLibCheck": true,
+    "downlevelIteration": true,
+    "experimentalDecorators": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "baseUrl": ".",
+    "paths": {
+      "@jaystack/sls-core": [
+        "packages/core/src"
+      ],
+      "@jaystack/sls-sequelize-pg": [
+        "packages/sequelize-pg/src"
+      ]
+    }
+  },
+  "exclude": [
+    "**/*.test.ts",
+    "node_modules",
+    "**/dist/*",
+    "**/*.d.ts"
+  ],
+}

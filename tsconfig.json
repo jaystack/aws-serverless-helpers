@@ -1,17 +1,3 @@
 {
-  "extends": "./tsconfig.build.json",
-  "compilerOptions": {
-    "baseUrl": ".",
-    "paths": {
-      "@jaystack/*": [
-        "packages/*/src"
-      ],
-      // "@jaystack/sls-core": [
-      //   "packages/core/src"
-      // ],
-      // "@jaystack/sls-sequelize-pg": [
-      //   "packages/sequlize-pg/src"
-      // ]
-    },
-  }
+  "extends": "./tools/tsconfig.base.json"
 }
