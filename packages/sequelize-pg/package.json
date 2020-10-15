@@ -9,7 +9,7 @@
   "repository": {
     "type": "git",
     "url": "ssh://git@github.com/jaystack/aws-serverless-helpers.git",
-    "directory": "packages/shared"
+    "directory": "packages/sequelize-pg"
   },
   "bugs": {
     "url": "https://github.com/jaystack/aws-serverless-helpers/issues"
