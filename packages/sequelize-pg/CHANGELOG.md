@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.0.1-alpha.6](https://github.com/jaystack/aws-serverless-helpers/compare/v0.0.1-alpha.5...v0.0.1-alpha.6) (2020-10-15)
+
+
+### Bug Fixes
+
+* **sequelize-pg:** check for required params only ([b164c78](https://github.com/jaystack/aws-serverless-helpers/commit/b164c781405a3b10151078e62444482916b3b212))
+
+
+
+
+
 ## [0.0.1-alpha.5](https://github.com/jaystack/aws-serverless-helpers/compare/v0.0.1-alpha.4...v0.0.1-alpha.5) (2020-10-15)
 
 
