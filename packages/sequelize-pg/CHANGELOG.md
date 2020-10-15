@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.0.1-alpha.3](https://github.com/jaystack/aws-serverless-helpers/compare/v0.0.1-alpha.2...v0.0.1-alpha.3) (2020-10-15)
+
+
+### Features
+
+* **sequelize-pg:** accept port as string ([05d34bc](https://github.com/jaystack/aws-serverless-helpers/commit/05d34bcc68d8d9ff79aa218a2a9fe44c86991e57))
+
+
+
+
+
 ## [0.0.1-alpha.2](https://github.com/jaystack/aws-serverless-helpers/compare/v0.0.1-alpha.1...v0.0.1-alpha.2) (2020-10-15)
 
 **Note:** Version bump only for package @jaystack/sls-sequelize-pg

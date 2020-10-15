@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.0.1-alpha.3](https://github.com/jaystack/aws-serverless-helpers/compare/v0.0.1-alpha.2...v0.0.1-alpha.3) (2020-10-15)
+
+
+### Features
+
+* **core:** add AppError to HttpResponse mapper ([96b2eb6](https://github.com/jaystack/aws-serverless-helpers/commit/96b2eb67556b91501074ace60d89172b1d076bde))
+
+
+
+
+
 ## [0.0.1-alpha.2](https://github.com/jaystack/aws-serverless-helpers/compare/v0.0.1-alpha.1...v0.0.1-alpha.2) (2020-10-15)
 
 **Note:** Version bump only for package @jaystack/sls-core
