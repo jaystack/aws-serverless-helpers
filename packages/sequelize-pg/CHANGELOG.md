@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.0.1-alpha.8](https://github.com/jaystack/aws-serverless-helpers/compare/v0.0.1-alpha.7...v0.0.1-alpha.8) (2020-10-15)
+
+
+### Features
+
+* **sequelize-pg:** export sequelize error utilities ([9559eae](https://github.com/jaystack/aws-serverless-helpers/commit/9559eae92ee822cc70bbbc352563c343080b6497))
+
+
+
+
+
 ## [0.0.1-alpha.7](https://github.com/jaystack/aws-serverless-helpers/compare/v0.0.1-alpha.6...v0.0.1-alpha.7) (2020-10-15)
 
 
