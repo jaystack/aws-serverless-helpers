@@ -7,7 +7,7 @@ export interface WithSequelizeOptions extends Omit<Options, "port"> {
   shouldAuthenticate?: boolean;
   shouldSync?: boolean;
   shouldCloseConnection?: boolean;
-
+  initModelsCallback?(sequelize: Sequelize): void | Promise<void>;
   port?: string | number;
 }
 
@@ -16,6 +16,7 @@ const defaultConfig: WithSequelizeOptions = {
   shouldCloseConnection: false,
   shouldSync: false,
   dialect: "postgres",
+  port: 5432,
   pool: {
     // Maximum number of connection in pool
     max: 2,
@@ -65,18 +66,23 @@ export const withSequelize = (
         if (!sequelize) {
           debug(`'${options.database}' db on host: '${options.host}'`);
           sequelize = new SeqCtr(options as Options);
+
+          if (options.initModelsCallback) {
+            debug("Initializing models");
+            await options.initModelsCallback(sequelize);
+          }
+
+          if (options.shouldSync) {
+            debug("synchronizing tables");
+            await sequelize.sync();
+          }
         } else {
           debug(`reusing Sequelize global instance for the ${invocationCount}th time`);
         }
 
-        if (options.shouldAuthenticate || options.shouldSync) {
+        if (options.shouldAuthenticate) {
           debug("authenticating");
           await sequelize.authenticate();
-        }
-
-        if (options.shouldSync) {
-          debug("synchronizing tables");
-          await sequelize.sync();
         }
 
         const result = await handler(event, context, { ...dependencies, sequelize }, callback);
