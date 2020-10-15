@@ -42,7 +42,7 @@ function validateSequelizeOptions(
     throw new AppError(ErrorCodes.CONFIGURATION, "Missing sequelize helper parameter(s)!");
   }
 
-  return { ...options, port: Number(port) };
+  return { port: Number(port), host, username, password, database, dialect };
 }
 
 let sequelize: Sequelize;
