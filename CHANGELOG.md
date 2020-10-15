@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.0.1-alpha.4](https://github.com/jaystack/aws-serverless-helpers/compare/v0.0.1-alpha.3...v0.0.1-alpha.4) (2020-10-15)
+
+
+### Features
+
+* **core:** optionally throw in withParsedBody, better debug logs ([dfc3ef5](https://github.com/jaystack/aws-serverless-helpers/commit/dfc3ef5e5ee47a3f99e701b6b6ec35f0cb1f035a))
+
+
+
+
+
 ## [0.0.1-alpha.3](https://github.com/jaystack/aws-serverless-helpers/compare/v0.0.1-alpha.2...v0.0.1-alpha.3) (2020-10-15)
 
 
