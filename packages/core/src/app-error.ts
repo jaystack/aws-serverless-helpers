@@ -30,6 +30,16 @@ export class AppError extends Error {
   }
 }
 
+export const printAppError = (error: AppError) => {
+  console.error("AppError: %s %s", error.code, error.message);
+  console.error(
+    "AppError original error: %s %s",
+    error.originalError?.name,
+    error.originalError?.message
+  );
+  console.error("AppError StackTrace >\n", error.stack);
+};
+
 export const isAppError = (error: any): error is AppError => error instanceof AppError;
 
 export enum ErrorCodes {
